@@ -1,5 +1,7 @@
 package pl.brocode.tg.logharvester.parser;
 
+import pl.brocode.tg.logharvester.model.log.LogEntry;
+
 /**
  *
  * @author G
@@ -7,6 +9,6 @@ package pl.brocode.tg.logharvester.parser;
 public class LineParser {
 
     public void parseLine() {
-        //LogEntry e;
+        LogEntry entry;
     }
 }

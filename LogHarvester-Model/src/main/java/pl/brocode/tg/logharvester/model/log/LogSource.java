@@ -1,4 +1,4 @@
-package pl.brocode.tg.logharvester.model;
+package pl.brocode.tg.logharvester.model.log;
 
 /**
  * Source of log entry. Usually set as full name of class.
