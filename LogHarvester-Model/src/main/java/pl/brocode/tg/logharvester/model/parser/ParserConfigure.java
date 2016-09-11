@@ -1,51 +1,47 @@
 package pl.brocode.tg.logharvester.model.parser;
 
+import java.time.format.DateTimeFormatter;
 import java.util.ArrayList;
 import java.util.Arrays;
 import java.util.List;
+import lombok.Data;
 
 /**
  *
  * @author G
  */
+@Data
 public class ParserConfigure {
-    
-    private String timestampFormat;
+
+    private DateTimeFormatter timestampFormat;
     private String timestampRegexp;
     private String levelRegexp;
     private String threadInfoRegexp;
     private String sourceInfoRegexp;
     private String messageRegexp;
     private final List<LogElement> entrySequesce;
-    
+
     public ParserConfigure(LogElement... sequence) {
         entrySequesce = new ArrayList<>();
         entrySequesce.addAll(Arrays.asList(sequence));
     }
 
-    public void setTimestampFormat(String timestampFormat) {
-        this.timestampFormat = timestampFormat;
+    public String getRegexpForElement(LogElement element) {
+        switch (element) {
+            case TIMESTAMP:
+                return getTimestampRegexp();
+            case LEVEL:
+                return getLevelRegexp();
+            case THREAD_INFO:
+                return getThreadInfoRegexp();
+            case SOURCE_NAME:
+                return getSourceInfoRegexp();
+            case MESSAGE:
+                return getMessageRegexp();
+            default:
+                throw new AssertionError(element.name());
+
+        }
     }
 
-    public void setTimestampRegexp(String timestampRegexp) {
-        this.timestampRegexp = timestampRegexp;
-    }
-
-    public void setLevelRegexp(String levelRegexp) {
-        this.levelRegexp = levelRegexp;
-    }
-
-    public void setThreadInfoRegexp(String threadInfoRegexp) {
-        this.threadInfoRegexp = threadInfoRegexp;
-    }
-
-    public void setSourceInfoRegexp(String sourceInfoRegexp) {
-        this.sourceInfoRegexp = sourceInfoRegexp;
-    }
-
-    public void setMessageRegexp(String messageRegexp) {
-        this.messageRegexp = messageRegexp;
-    }
-    
-    
 }

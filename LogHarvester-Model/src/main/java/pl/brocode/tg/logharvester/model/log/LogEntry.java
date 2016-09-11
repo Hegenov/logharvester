@@ -3,11 +3,14 @@ package pl.brocode.tg.logharvester.model.log;
 import java.io.Serializable;
 import java.time.LocalTime;
 import java.util.logging.Logger;
+import lombok.Data;
+import lombok.NonNull;
 
 /**
  *
  * @author G
  */
+@Data
 public class LogEntry implements Serializable {
 
     private static final Logger LOG = Logger.getLogger(LogEntry.class.getName());
@@ -16,33 +19,8 @@ public class LogEntry implements Serializable {
     private final LocalTime entryTimestamp;
     private final LogLevel logLevel;
     private final LogSource logSource;
+    @NonNull
     private String content;
-
-    public LogEntry(LocalTime entryTimestamp, LogLevel logLevel, LogSource logSource, String content) {
-        this.entryTimestamp = entryTimestamp;
-        this.logLevel = logLevel;
-        this.logSource = logSource;
-        this.content = content;
-    }
-
-    public LocalTime getEntryTimestamp() {
-        return entryTimestamp;
-    }
-
-    public LogLevel getLogLevel() {
-        return logLevel;
-    }
-
-    public LogSource getLogSource() {
-        return logSource;
-    }
-
-    public String getContent() {
-        if (content == null) {
-            return content;
-        }
-        return content;
-    }
 
     public String appendConent(final String additionContent) {
         if (content == null) {

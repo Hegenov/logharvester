@@ -47,6 +47,18 @@
                 <artifactId>LogHarvester-Parser</artifactId>
                 <version>${project.version}</version>
             </dependency>
+            <dependency>
+                <groupId>org.projectlombok</groupId>
+                <artifactId>lombok</artifactId>
+                <version>1.16.10</version>
+                <scope>provided</scope>
+            </dependency>
+            <dependency>
+                <groupId>org.testng</groupId>
+                <artifactId>testng</artifactId>
+                <version>6.9.10</version>
+                <scope>test</scope>
+            </dependency>
         </dependencies>
     </dependencyManagement>
     <build>
@@ -81,7 +93,7 @@
                             <manifest>
                                 <addClasspath>true</addClasspath>
                                 <classpathPrefix>lib/</classpathPrefix>
-<!--                                <mainClass>
+                                <!--                                <mainClass>
                                     pl.brocode.tg.magisterka.windowsapk.manager.Launcher
                                 </mainClass>-->
                             </manifest>
@@ -95,7 +107,7 @@
                     <configuration>
                         <source>${maven.compiler.source}</source>
                         <target>${maven.compiler.target}</target>
-<!--                        <compilerArguments>
+                        <!--                        <compilerArguments>
                             <bootclasspath>
                                 ${sun.boot.class.path}${path.separator}${java.home}/lib/ext/jfxrt.jar
                             </bootclasspath>
@@ -106,7 +118,7 @@
                     <groupId>org.apache.maven.plugins</groupId>
                     <artifactId>maven-surefire-plugin</artifactId>
                     <version>2.19.1</version>
-<!--                    <configuration>
+                    <!--                    <configuration>
                         <additionalClasspathElements>
                             <additionalClasspathElement>${java.home}/lib/ext/jfxrt.jar</additionalClasspathElement>
                         </additionalClasspathElements>
